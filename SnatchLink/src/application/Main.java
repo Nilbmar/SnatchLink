@@ -3,14 +3,17 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import loaders.ImageLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 
-public class Main extends Application {
+public class Main extends Application {	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			
+			
 			Parent root = FXMLLoader.load(getClass().getResource("/assets/fx/ocrTest.fxml"));
 			Scene scene = new Scene(root,600,400);primaryStage.setScene(scene);
 			primaryStage.setTitle("Test OCR Link Grabber");
@@ -23,4 +26,5 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 }

@@ -16,12 +16,13 @@ public class OcrTestControllerTest {
 	// Commented out because I can't test FileChooser from the fxml
 	//@Test
 	public void testOpenImage() {
-		System.out.println(controller.openImage());
-		assertNotNull("Open Image returns null", controller.openImage());
+		System.out.println(controller.getImageLoader().getTarget());
+		assertNotNull("Open Image returns null", controller.getImageLoader().getTarget());
 	}
 	
 	@Test
 	public void testGetLink() {
+		controller.setLink("http://musicforprogramming.net");
 		System.out.println(controller.getLink());
 		assertNotNull("Get Link returns null", controller.getLink());
 	}

@@ -13,6 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
+import loaders.ImageLoader;
 
 public class OcrTestController {
 	// Main pane
@@ -34,19 +35,26 @@ public class OcrTestController {
 	public Button btnSnipFromWeb;
 	
 
+	private ImageLoader imageLoader;
 	private String link = null;
 
 	// Call dialog for selecting an image file on the file system
-	public String openImage() {
-		String imgLocation = null;
+	// then shows the selected image in the ImageView
+	public void openImage() {
+		// Make sure the imageLoader is created
+		if (imageLoader == null) {
+			imageLoader = new ImageLoader();
+		}
 		
 		try {
 			// Opens a file chooser dialog
-			imgLocation = getImageLocation();
+			// and uses the return value to set a target image
+			// to be used in the ImageView
+			imageLoader.setTarget(getImageLocation());
 			// Includes path and full name, as well as extension
 			
 			// Make sure file exists still and set the ImageView to that picture
-			File file = new File(imgLocation);
+			File file = new File(imageLoader.getTarget());
 			if (file != null && file.exists()) {
 				Image image = new Image(file.toURI().toString());
 				imgView.setImage(image);
@@ -55,7 +63,7 @@ public class OcrTestController {
 			// If file chooser is canceled out of
 			System.out.println("Exception reached: " + ex);
 		}
-		return imgLocation;
+		
 	}
 	
 	// openImage uses this function to open a FileChooser
@@ -88,6 +96,8 @@ public class OcrTestController {
 		
 		return imgLocation;
 	}
+	
+	public ImageLoader getImageLoader() { return imageLoader; }
 	
 	// Start process for getting a link from an image
 	public void processLink() {
