@@ -6,7 +6,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebView;
 
-public class ocrTestController {
+public class OcrTestController {
 
 	// Menu Items
 	public MenuItem menuOpenImage;
