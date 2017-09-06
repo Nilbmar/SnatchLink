@@ -73,8 +73,8 @@
                            <children>
                               <FlowPane layoutX="-11.0" layoutY="-42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button fx:id="btnGetLink" mnemonicParsing="false" onAction="#getLink" text="Get Link" />
-                                    <Button fx:id="btnOpenLink" mnemonicParsing="false" text="Open Link" />
+                                    <Button fx:id="btnProcessLink" mnemonicParsing="false" onAction="#processLink" text="Process Link" />
+                                    <Button fx:id="btnOpenLink" mnemonicParsing="false" onAction="#openLink" text="Open Link" />
                                     <Button fx:id="btnOpenInBrowser" mnemonicParsing="false" text="Open in Browser" />
                                     <Button fx:id="btnSnipFromWeb" mnemonicParsing="false" text="Snip Link from Web" />
                                  </children>

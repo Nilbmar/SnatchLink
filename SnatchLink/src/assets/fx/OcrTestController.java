@@ -8,6 +8,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -22,16 +23,19 @@ public class OcrTestController {
 	
 	// Views
 	public TreeView<String> treeView;
-	public WebView webView;
 	public ImageView imgView;
+	public WebView webView;
+	public WebEngine webEngine;
 	
 	// Buttons
-	public Button btnGetLink;
+	public Button btnProcessLink;
 	public Button btnOpenLink;
 	public Button btnOpenInBrowser;
 	public Button btnSnipFromWeb;
 	
-	
+
+	private String link = null;
+
 	// Call dialog for selecting an image file on the file system
 	public String openImage() {
 		String imgLocation = null;
@@ -86,11 +90,27 @@ public class OcrTestController {
 	}
 	
 	// Start process for getting a link from an image
-	public String getLink() {
-		String link = null;
-		
-		link = "I'm a link, baby!";
-		
-		return link;
+	public void processLink() {
+		// TODO: THIS IS WHERE THE OCR CODE WILL GO
+		setLink("http://www.java2s.com/Tutorials/Java/JavaFX/1510__JavaFX_WebView.htm");
 	}
+	
+	public void openLink() {
+		// Create the engine for webView to use
+		// if it doesn't already exist
+		if (webEngine == null) {
+			webEngine = webView.getEngine();
+		}
+		
+		// Open web page in webView if engine and link exist
+		if (link != null && webEngine != null) {
+			webEngine.load(link);
+		} else {
+			System.out.println("Still need to process a link.");
+		}
+	}
+	
+	public String getLink() { return link; }
+	public void setLink(String link) { this.link = link; }
+	
 }
