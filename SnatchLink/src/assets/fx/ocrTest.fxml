@@ -15,13 +15,13 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assets.fx.ocrTestController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open Image" />
+                  <MenuItem fx:id="menuOpenImage" mnemonicParsing="false" onAction="#openImage" text="Open Image" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
@@ -41,7 +41,7 @@
    <left>
       <AnchorPane prefHeight="330.0" prefWidth="82.0" BorderPane.alignment="CENTER">
          <children>
-            <TreeView prefHeight="330.0" prefWidth="126.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <TreeView fx:id="treeView" prefHeight="330.0" prefWidth="126.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </left>
@@ -53,7 +53,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <WebView prefHeight="159.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <WebView fx:id="webView" prefHeight="159.0" prefWidth="469.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -62,7 +62,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <ImageView disable="true" fitHeight="166.0" fitWidth="318.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <ImageView fx:id="imgView" disable="true" fitHeight="166.0" fitWidth="318.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <image>
                                     <Image url="@assets/images/orc_test_link.png" />
                                  </image>
@@ -73,10 +73,10 @@
                            <children>
                               <FlowPane layoutX="-11.0" layoutY="-42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Get Link" />
-                                    <Button mnemonicParsing="false" text="Open Link" />
-                                    <Button mnemonicParsing="false" text="Open in Browser" />
-                                    <Button mnemonicParsing="false" text="Snip Link from Web" />
+                                    <Button fx:id="btnGetLink" mnemonicParsing="false" onAction="#getLink" text="Get Link" />
+                                    <Button fx:id="btnOpenLink" mnemonicParsing="false" text="Open Link" />
+                                    <Button fx:id="btnOpenInBrowser" mnemonicParsing="false" text="Open in Browser" />
+                                    <Button fx:id="btnSnipFromWeb" mnemonicParsing="false" text="Snip Link from Web" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />
