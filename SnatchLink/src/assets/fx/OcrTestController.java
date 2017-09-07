@@ -136,7 +136,7 @@ public class OcrTestController {
 			linkLoader = new LinkLoader();
 		}
 		
-		linkLoader.setTarget("https://www.youtube.com/");
+		linkLoader.setTarget("http://musicforprogramming.net/?thirtyeight");
 		linkLoader.load();
 		
 		if (linkLoader.getUrl() != null && linkLoader.getTitle() != null) {

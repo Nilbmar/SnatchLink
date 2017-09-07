@@ -32,6 +32,12 @@ private static final Pattern TITLE_TAG = Pattern.compile("\\<title>(.*)\\</title
 public static String getPageTitle(String url) throws IOException {
     URL u = new URL(url);
     URLConnection conn = u.openConnection();
+    
+    // Adds the user-agent that Firefox uses
+    // so websites will view the connection as coming from a browser
+    // and not give a 403 error to disallow information extraction
+    conn.addRequestProperty("User-Agent", 
+    		"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:25.0) Gecko/20100101 Firefox/25.0");
 
     ContentType contentType = getContentTypeHeader(conn);
 
