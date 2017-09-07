@@ -2,11 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -45,9 +45,6 @@
          </children>
       </AnchorPane>
    </left>
-   <bottom>
-      <TextArea prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </bottom>
    <center>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
         <items>
@@ -77,6 +74,7 @@
                                     <Button fx:id="btnOpenLink" mnemonicParsing="false" onAction="#openLink" text="Open Link" />
                                     <Button fx:id="btnOpenInBrowser" mnemonicParsing="false" text="Open in Browser" />
                                     <Button fx:id="btnSnipFromWeb" mnemonicParsing="false" text="Snip Link from Web" />
+                                    <Button fx:id="btnTestLinkLoader" mnemonicParsing="false" onAction="#testLinkLoader" text="Test Default Link" />
                                  </children>
                                  <opaqueInsets>
                                     <Insets />
@@ -91,4 +89,11 @@
         </items>
       </SplitPane>
    </center>
+   <bottom>
+      <Label fx:id="lblInfo" prefHeight="24.0" prefWidth="579.0" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="2.0" left="10.0" right="2.0" top="10.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
 </BorderPane>

@@ -11,8 +11,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			
-			
 			Parent root = FXMLLoader.load(getClass().getResource("/assets/fx/ocrTest.fxml"));
 			Scene scene = new Scene(root,600,400);primaryStage.setScene(scene);
 			primaryStage.setTitle("Test OCR Link Grabber");

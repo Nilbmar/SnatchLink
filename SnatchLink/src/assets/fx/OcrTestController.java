@@ -3,6 +3,7 @@ package assets.fx;
 import java.io.File;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.image.Image;
@@ -14,6 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import loaders.ImageLoader;
+import loaders.LinkLoader;
 
 public class OcrTestController {
 	// Main pane
@@ -33,10 +35,15 @@ public class OcrTestController {
 	public Button btnOpenLink;
 	public Button btnOpenInBrowser;
 	public Button btnSnipFromWeb;
+	public Button btnTestLinkLoader;
+	
+	public Label lblInfo;
 	
 
 	private ImageLoader imageLoader;
+	private LinkLoader linkLoader;
 	private String link = null;
+	private String info = null;
 
 	// Call dialog for selecting an image file on the file system
 	// then shows the selected image in the ImageView
@@ -122,5 +129,26 @@ public class OcrTestController {
 	
 	public String getLink() { return link; }
 	public void setLink(String link) { this.link = link; }
+	public LinkLoader getLinkLoader() { return linkLoader; }
+	
+	public void testLinkLoader() {
+		if (linkLoader == null) {
+			linkLoader = new LinkLoader();
+		}
+		
+		linkLoader.setTarget("https://www.youtube.com/");
+		linkLoader.load();
+		
+		if (linkLoader.getUrl() != null && linkLoader.getTitle() != null) {
+			setLink(linkLoader.getUrl());
+			openLink();
+			setInfoLabel(linkLoader.getTitle());
+		}
+	}
+	
+	public void setInfoLabel(String info) { 
+		this.info = info; 
+		lblInfo.setText(this.info);
+	}
 	
 }
